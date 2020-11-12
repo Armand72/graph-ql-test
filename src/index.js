@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { ApolloClient, InMemoryCache,ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://api.spacex.land/graphql/',
+  cache: new InMemoryCache()
+});
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ApolloProvider client={client}>
       <App />
-    </Provider>
+      </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

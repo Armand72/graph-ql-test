@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './assets/styles/main.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+
 import Routes from './routing/Route';
 
 class App extends Component {
@@ -21,8 +20,6 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
 
-export default connect(mapStateToProps)(App);
+
+export default App
